@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grade Calculator</title>
+    <style>
+        body {
+            background: #8500ff;
+            text-align: center;
+            color: #fff;
+            padding: 40px 0;
+        }
+        input {
+            padding: 10px;
+            background-color: #fff!important;
+            border: none;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 30px;
+            background: #fff;
+            border: 1px solid #fff;
+            border-radius: 4px;
+        }
+        #score-content {
+            margin-top: 30px;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form id="score-form">
+            <input type="text" id="name" placeholder="Enter your name here" />
+            <input type="text" id="score" placeholder="Enter your score" />
+            <button id="calculate">Calculate Grade</button>
+        </form>
+        <div id="score-content"></div>
+    </div>
+
+    <script> 
+        const scoreForm = document.getElementById('score-form'); 
+        const name = document.getElementById('name');
+        const score = document.getElementById('score');
+        const scoreContent = document.getElementById('score-content');
+
+        scoreForm.addEventListener('submit', ($event) => {
+            $event.preventDefault();
+            if (score.value >= 70) {
+                scoreContent.textContent = 'Hi ' +name.value+ ', your grade is A';
+            }
+            else if (score.value >=60) {
+                scoreContent.textContent = 'Hi ' +name.value+ ', your grade is B';
+            }
+            else if (score.value >=50) {
+                scoreContent.textContent = 'Hi ' +name.value+ ', your grade is C';
+            }
+            else if (score.value >=45) {
+                scoreContent.textContent = 'Hi ' +name.value+ ', your grade is D';
+            }
+            else if (score.value >=40) {
+                scoreContent.textContent = 'Hi ' +name.value+ ', your grade is E';
+            }
+            else if (score.value <=39) {
+                scoreContent.textContent = 'Hi ' +name.value+ ', your grade is F ';
+            }
+            else {
+                scoreContent.textContent = 'The score is not within the range';
+            }
+        });
+    </script>
+</body>
